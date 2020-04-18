@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,6 +49,7 @@ public class StockServiceController {
       return new ResponseEntity<>("stocks is created successfully", HttpStatus.CREATED);
    }
 
+   @CrossOrigin(origins = "http://localhost:8001")
    @RequestMapping(value = "/stocks")
    public ResponseEntity<Object> getStocks() {
       return new ResponseEntity<>(stockRepo.values(), HttpStatus.OK);
